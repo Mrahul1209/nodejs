@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>User Form</title>
+</head>
+
+<body>
+    <h1 align="center">Edit User Form
+    </h1>
+
+    <form method="post" action="/updateUser">
+        <table align="center" border="1">
+
+            <tr>
+                <td>Name</td>
+                <td><input type="hidden" name="id" value=<%=user.id %> />
+                    <input type="text" name="name" value=<%=user.name %> />
+                </td>
+            </tr>
+
+            <tr>
+                <td>Email</td>
+                <td><input type="email" name="email" value=<%=user.email %> /></td>
+            </tr>
+
+            <tr>
+                <td>Password</td>
+                <td><input type="password" name="password" value=<%=user.password %> /></td>
+            </tr>
+
+            <tr>
+                <td>Phone</td>
+                <td><input type="number" name="phone" value=<%=user.phone %> /></td>
+            </tr>
+
+            <tr>
+                <td>Address</td>
+                <td><textarea name="address"><%=user.address %></textarea></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Update" /></td>
+            </tr>
+        </table>
+    </form>
+
+</body>
+
+</html>

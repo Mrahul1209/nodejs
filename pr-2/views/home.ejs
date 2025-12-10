@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>To-Do List</title>
+ <link rel="stylesheet" href="dist/style.css">
+</head>
+
+<body>
+
+    <h1>To-Do List</h1>
+
+    <a href="/add">Add New Task</a>
+    <br><br>
+
+    <table border="1" cellpadding="10">
+        <tr>
+            <th>ID</th>
+            <th>Task</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+
+        <% todos.forEach(todo=> { %>
+            <tr>
+                <td>
+                    <%= todo.id %>
+                </td>
+                <td>
+                    <%= todo.task %>
+                </td>
+                <td>
+                    <%= todo.done ? "Completed" : "Pending" %>
+                </td>
+                <td>
+                    <a href="/edit?id=<%= todo.id %>">Edit</a> |
+                    <a href="/delete?id=<%= todo.id %>">Delete</a>
+                </td>
+            </tr>
+            <% }) %>
+    </table>
+
+</body>
+
+</html>

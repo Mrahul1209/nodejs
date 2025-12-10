@@ -1,0 +1,17 @@
+{
+  "name": "curdoperation",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "curd.js",
+  "scripts": {
+    "start": "nodemon curd"
+  },
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^5.2.1",
+    "nodemon": "^3.1.11"
+  }
+}

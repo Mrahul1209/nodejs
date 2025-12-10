@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home – Meta Style</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #eef1f5, #d0d4dc);
+            color: #1b1b1b;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: white;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+        }
+
+        nav .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #4267B2;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #4267B2;
+        }
+
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 150px 20px;
+        }
+
+        .hero h1 {
+            font-size: 60px;
+            font-weight: 800;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 22px;
+            max-width: 700px;
+            margin: auto;
+            color: #444;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 30px;
+            padding: 18px 40px;
+            font-size: 20px;
+            background: #4267B2;
+            color: white;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #365899;
+        }
+
+        /* Features Section */
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            padding: 60px;
+        }
+
+        .box {
+            width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        .box h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .box p {
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">META</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Welcome to Meta-Style Website</h1>
+        <p>Experience a clean, modern interface inspired by the world's most advanced design systems.</p>
+        <a href="/get-started" class="btn">Get Started</a>
+    </div>
+
+    <!-- Features Section -->
+    <div class="features">
+        <div class="box">
+            <h3>Fast</h3>
+            <p>Optimized for speed and smooth interactions.</p>
+        </div>
+        <div class="box">
+            <h3>Modern</h3>
+            <p>Clean UI, elegant colors, perfect typography.</p>
+        </div>
+        <div class="box">
+            <h3>Responsive</h3>
+            <p>Looks beautiful on mobile and desktop.</p>
+        </div>
+    </div>
+
+</body>
+</html>

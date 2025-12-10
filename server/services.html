@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services – Meta Style</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #eef1f5, #d0d4dc);
+            color: #1b1b1b;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: white;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+        }
+
+        nav .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #4267B2;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #4267B2;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 55px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+            color: #444;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 90px 60px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .service-box {
+            width: 320px;
+            background: white;
+            padding: 35px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+            transition: 0.3s;
+        }
+
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 18px 45px rgba(0,0,0,0.15);
+        }
+
+        .service-icon {
+            font-size: 55px;
+            color: #4267B2;
+            margin-bottom: 15px;
+        }
+
+        .service-box h3 {
+            font-size: 26px;
+            margin-bottom: 10px;
+        }
+
+        .service-box p {
+            font-size: 17px;
+            color: #555;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .cta h2 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            font-size: 20px;
+            color: #444;
+            margin-bottom: 20px;
+        }
+
+        .cta-btn {
+            background: #4267B2;
+            padding: 16px 40px;
+            color: white;
+            font-size: 20px;
+            border-radius: 12px;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+
+        .cta-btn:hover {
+            background: #365899;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">META</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Our Services</h1>
+        <p>We deliver future-ready solutions with innovation, performance, and excellent user experience.</p>
+    </div>
+
+    <!-- Services Section -->
+    <div class="services">
+
+        <div class="service-box">
+            <div class="service-icon">💻</div>
+            <h3>Web Development</h3>
+            <p>High-performance, modern, responsive websites built for speed and beauty.</p>
+        </div>
+
+        <div class="service-box">
+            <div class="s

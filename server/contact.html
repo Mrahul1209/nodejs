@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact – Meta Style</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            margin: 0;
+            font-family: "Inter", sans-serif;
+            background: linear-gradient(135deg, #eef1f5, #d0d4dc);
+            color: #1b1b1b;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 60px;
+            background: white;
+            box-shadow: 0 3px 20px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+        }
+
+        nav .logo {
+            font-size: 28px;
+            font-weight: 800;
+            color: #4267B2;
+        }
+
+        nav ul {
+            display: flex;
+            gap: 40px;
+            list-style-type: none;
+            padding: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            font-size: 18px;
+            color: #333;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            color: #4267B2;
+        }
+
+        /* Contact Header */
+        .header {
+            text-align: center;
+            margin-top: 80px;
+            padding: 0 20px;
+        }
+
+        .header h1 {
+            font-size: 55px;
+            font-weight: 800;
+            margin-bottom: 15px;
+        }
+
+        .header p {
+            font-size: 20px;
+            max-width: 700px;
+            margin: auto;
+            color: #444;
+        }
+
+        /* Contact Container */
+        .contact-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 60px;
+            padding: 80px 60px;
+            flex-wrap: wrap;
+        }
+
+        /* Contact Form */
+        .form-box {
+            background: white;
+            padding: 40px;
+            width: 420px;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(0,0,0,0.12);
+        }
+
+        .form-box h2 {
+            font-size: 30px;
+            margin-bottom: 20px;
+        }
+
+        .form-box input,
+        .form-box textarea {
+            width: 100%;
+            padding: 14px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .form-box textarea {
+            resize: none;
+            height: 120px;
+        }
+
+        .btn {
+            width: 100%;
+            background: #4267B2;
+            color: white;
+            padding: 15px;
+            font-size: 18px;
+            border-radius: 12px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn:hover {
+            background: #365899;
+        }
+
+        /* Contact Info */
+        .info-box {
+            max-width: 360px;
+        }
+
+        .info-box h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+
+        .info-item {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }
+
+        .info-item p {
+            font-size: 17px;
+            color: #444;
+            margin: 0;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">META</div>
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/services">Services</a></li>
+            <li><a href="/contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Header -->
+    <div class="header">
+        <h1>Contact Us</h1>
+        <p>Have questions or want to collaborate? We’d love to hear from you.</p>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="contact-container">
+
+        <!-- Contact Form -->
+        <div class="form-box">
+            <h2>Send a Message</h2>
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea placeholder="Your Message" required></textarea>
+                <button class="btn" type="submit">Send</button>
+            </form>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="info-box">
+            <h3>Contact Information</h3>
+
+            <div class="info-item">
+                <p><strong>Email:</strong> support@example.com</p>
+            </div>
+
+            <div class="info-item">
+                <p><strong>Phone:</strong> +1 234 567 890</p>
+            </div>
+
+            <div class="info-item">
+                <p><strong>Address:</strong><br> 123 Innovation Street,<br> Meta City, Earth</p>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+</html>
