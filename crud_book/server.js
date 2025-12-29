@@ -45,17 +45,14 @@ app.post('/addBook', async (req, res) => {
 
 
 // Edit Route
-app.get('/editBook/:bookId', async (req, res) => {
-    console.log(req.params);
+app.get('/editBook/:id', async (req, res) => {
+    console.log(req.params.id);
 
-    const book = await Book.findById(req.params.bookId);
+    const book = await Book.findById(req.params.id);
 
     console.log(book);
 
-
     return res.render('edit', { book });
-
-
 });
 
 // Update Book Logic

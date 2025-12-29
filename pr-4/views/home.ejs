@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home Page</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <!--  Navbar -->
+    <nav class="navbar navbar-expand-lg  fixed-top">
+        <div class="container">
+            <a class="navbar-brand text-white" href="#">Travellers</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link  text-white active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link text-white " href="#">About</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Add Travel</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--  Carousel -->
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0"
+                class="active"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="4"></button>
+        </div>
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="https://i0.wp.com/blogs.foaidindia.in/wp-content/uploads/2025/06/eiffel-tower-architect.jpg"
+                    class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to BookStore</h5>
+                    <p>Best books at best prices</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://www.agoda.com/wp-content/uploads/2025/07/20A_night-time-show_16x9.jpg"
+                    class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Latest Collection</h5>
+                    <p>New arrivals every week</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://cdn.originalbuddhas.com/pages/uploads/197170/conversions/golden-temple-thailand-large.jpg"
+                    class="d-block w-100" alt="Slide 3">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Read & Grow</h5>
+                    <p>Knowledge is power</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://freerangestock.com/sample/131976/top-view-of-bangkok-city-at-night.jpg"
+                    class="d-block w-100" alt="Slide 1">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to bankok</h5>
+                    <p>Best books at best prices</p>
+                </div>
+            </div>
+
+            <div class="carousel-item">
+                <img src="https://wallpapers.com/images/hd/night-street-times-square-american-city-1dzdcqdwvdbqi7ua.jpg"
+                    class="d-block w-100" alt="Slide 2">
+                <div class="carousel-caption d-none d-md-block">
+                    <h5>Welcome to my profile</h5>
+                    <p>New arrivals every a week</p>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
+
+        <div class="container mt-5 mb-5">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Travel Booking Form</h3>
+                </div>
+
+                <div class="card-body">
+                    <form method="post" action="/addtravel">
+
+                        <!-- 🔹 Personal Details -->
+                        <h5 class="mb-3">Personal Details</h5>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Full Name</label>
+                                <input type="text" name="full_name" class="form-control" placeholder="Enter full name"
+                                    required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Enter email"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Mobile Number</label>
+                                <input type="tel" name="mobile_number" class="form-control"
+                                    placeholder="Enter mobile number" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Age</label>
+                                <input type="number" name="Age" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Gender</label>
+                                <select class="form-select" name="Gender" required>
+                                    <option value="">Select</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- 🔹 Travel Details -->
+                        <h5 class="mb-3">Travel Details</h5>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">From</label>
+                                <input type="text" name="From" class="form-control" placeholder="Source city" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">To</label>
+                                <input type="text" name="to" class="form-control" placeholder="Destination city"
+                                    required>
+                            </div>
+                        </div>
+
+                        <div class="row mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label">Departure Date</label>
+                                <input type="date" name="Departure_date" class="form-control" required>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Return Date</label>
+                                <input type="date" name="Return_date" class="form-control">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label">Travellers</label>
+                                <input type="number" name="Travellers" class="form-control" min="1" required>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- 🔹 Travel Preferences -->
+                        <h5 class="mb-3">Travel Preferences</h5>
+
+                        <div class="row mb-3">
+                            <div class="col-md-3">
+                                <label class="form-label">Travel Type</label>
+                                <select name="Travel_type" class="form-select">
+                                    <option>Bus</option>
+                                    <option>Train</option>
+                                    <option>Flight</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Seat Preference</label>
+                                <select name="seat_preference" class="form-select">
+                                    <option>Window</option>
+                                    <option>Aisle</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Class</label>
+                                <select name="class" class="form-select">
+                                    <option>Economy</option>
+                                    <option>Business</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-3">
+                                <label class="form-label">Meal</label>
+                                <select name="meal" class="form-select">
+                                    <option>Veg</option>
+                                    <option>Non-Veg</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- 🔹 Accommodation -->
+                        <h5 class="mb-3">Accommodation</h5>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Hotel Required</label>
+                                <select name="Hotel_required" class="form-select">
+                                    <option>No</option>
+                                    <option>Yes</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">Room Type</label>
+                                <select name="Room_type" class="form-select">
+                                    <option>Single</option>
+                                    <option>Double</option>
+                                    <option>Family</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <hr>
+
+                        <!-- 🔹 Documents -->
+                        <h5 class="mb-3">Documents</h5>
+
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label">ID Proof</label>
+                                <select name="ID_proof" class="form-select">
+                                    <option>Aadhar Card</option>
+                                    <option>Passport</option>
+                                    <option>Voter ID</option>
+                                </select>
+                            </div>
+
+                            <div class="col-md-6">
+                                <label class="form-label">ID Number</label>
+                                <input type="text" name="ID_number" class="form-control">
+                            </div>
+                        </div>
+
+
+                        <hr>
+
+                        <!-- 🔹 Additional Info -->
+                        <h5 class="mb-3">Additional Information</h5>
+
+                        <div class="mb-3">
+                            <label class="form-label">Special Requests</label>
+                            <textarea name="Special_requests" class="form-control" rows="3"></textarea>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label">Emergency Contact</label>
+                            <input type="tel" name="Emergency_contact" class="form-control">
+                        </div>
+
+                        <!-- 🔹 Submit -->
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-5">
+                                Submit Booking
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Bootstrap Footer -->
+        <footer class="bg-dark text-light pt-5 pb-4 mt-5">
+            <div class="container text-md-start text-center">
+                <div class="row">
+
+                    <!-- Brand -->
+                    <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mb-4">
+                        <h5 class="text-uppercase fw-bold mb-3 text-primary">META</h5>
+                        <p class="text-muted">
+                            Delivering innovative travel & booking solutions with passion and excellence.
+                        </p>
+                    </div>
+
+                    <!-- Links -->
+                    <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-3">Quick Links</h6>
+                        <p><a href="#" class="text-muted text-decoration-none">Home</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">Bookings</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">About</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">Contact</a></p>
+                    </div>
+
+                    <!-- Services -->
+                    <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+                        <h6 class="text-uppercase fw-bold mb-3">Services</h6>
+                        <p><a href="#" class="text-muted text-decoration-none">Flights</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">Hotels</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">Bus</a></p>
+                        <p><a href="#" class="text-muted text-decoration-none">Train</a></p>
+                    </div>
+
+                    <!-- Contact -->
+                    <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-md-0 mb-4">
+                        <h6 class="text-uppercase fw-bold mb-3">Contact</h6>
+                        <p class="text-muted">📍 New Delhi, India</p>
+                        <p class="text-muted">✉ support@meta.com</p>
+                        <p class="text-muted">📞 +91 98765 43210</p>
+                    </div>
+
+                </div>
+
+                <hr class="my-4 text-secondary">
+
+                <!-- Social + Copyright -->
+                <div class="row align-items-center">
+                    <div class="col-md-6 text-md-start text-center mb-2">
+                        <p class="mb-0 text-muted">
+                            © 2025 <span class="text-primary fw-bold">META</span>. All Rights Reserved.
+                        </p>
+                    </div>
+
+                    <div class="col-md-6 text-md-end text-center">
+                        <a href="#" class="text-light fs-5 me-3">🌐</a>
+                        <a href="#" class="text-light fs-5 me-3">🐦</a>
+                        <a href="#" class="text-light fs-5 me-3">📸</a>
+                        <a href="#" class="text-light fs-5">💼</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+
+        meta mujhe a footer nahi pasand dusra bana ke using bootstrap
+
+        <!-- Bootstrap 5 JS -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

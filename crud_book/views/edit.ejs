@@ -14,9 +14,9 @@
     <h1 style="text-align: center;" class="mt-5">Update Book</h1>
 
     <div class="container col-4">
-        <form method="post" action="/updateBook" enctype="multipart/form-data">
+        <form method="post" action="/updateBook">
             <div class="mb-3">
-                <input type="hidden" name="id" value="<%= book._id %>" class="form-control">
+                <input type="hidden" name="id" value="<%= book.id %>" class="form-control">
             </div>
             <div class="mb-3">
                 <label class="form-label">Book Name</label>

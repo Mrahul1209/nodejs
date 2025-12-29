@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Travel Bookings</title>
+    <!-- Font Awesome for icons (optional) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/dist/style.css">
+
+</head>
+
+<body>
+    <div class="container mt-5 mb-5">
+        <div class="card shadow">
+            <div class="card-header bg-primary text-white text-center">
+                <h3>Travel upadate Form</h3>
+            </div>
+
+            <div class="card-body">
+                <form method="post" action="/updatetravel">
+
+                    <!-- 🔹 Personal Details -->
+                    <h5 class="mb-3">Personal Details</h5>
+                    <div class="mb-3">
+                        <input type="hidden" name="id" value="<%= travel.id %>" class="form-control">
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" name="full_name" value="<%= travel.full_name %>" class="form-control"
+                                placeholder="Enter full name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Email</label>
+                            <input type="email" name="email" value="<%= travel.email %>" class="form-control"
+                                placeholder="Enter email" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Mobile Number</label>
+                            <input type="tel" name="mobile_number" value="<%= travel.mobile_number %>"
+                                class="form-control" placeholder="Enter mobile number" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Age</label>
+                            <input type="number" name="Age" value="<%= travel.Age %>" class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Gender</label>
+                            <select class="form-select" name="Gender" required>
+                                <option value="">Select</option>
+                                <option value="Male" <%=travel.Gender==='Male' ? 'selected' : '' %>>Male</option>
+                                <option value="Female" <%=travel.Gender==='Female' ? 'selected' : '' %>>Female</option>
+                                <option value="Other" <%=travel.Gender==='Other' ? 'selected' : '' %>>Other</option>
+                            </select>
+
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- 🔹 Travel Details -->
+                    <h5 class="mb-3">Travel Details</h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">From</label>
+                            <input type="text" name="From" value="<%= travel.From %>" class="form-control"
+                                placeholder="Source city" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">To</label>
+                            <input type="text" name="to" value="<%= travel.to %>" class="form-control"
+                                placeholder="Destination city" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label class="form-label">Departure Date</label>
+                            <input type="date" name="Departure_date" value="<%= travel.Departure_date %>"
+                                class="form-control" required>
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Return Date</label>
+                            <input type="date" name="Return_date" value="<%= travel.Return_date %>"
+                                class="form-control">
+                        </div>
+                        <div class="col-md-4">
+                            <label class="form-label">Travellers</label>
+                            <input type="number" name="Travellers" value="<%= travel.Travellers %>" class="form-control"
+                                min="1" required>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- 🔹 Travel Preferences -->
+                    <h5 class="mb-3">Travel Preferences</h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label class="form-label">Travel Type</label>
+                            <select name="Travel_type" value="<%= travel.Travel_type %>" class="form-select">
+                                <option>Bus</option>
+                                <option>Train</option>
+                                <option>Flight</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Seat Preference</label>
+                            <select name="seat_preference" value="<%= travel.seat_preference %>" class="form-select">
+                                <option>Window</option>
+                                <option>Aisle</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Class</label>
+                            <select name="class" value="<%= travel.class %>" class="form-select">
+                                <option>Economy</option>
+                                <option>Business</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-3">
+                            <label class="form-label">Meal</label>
+                            <select name="meal" value="<%= travel.meal %>" class="form-select">
+                                <option>Veg</option>
+                                <option>Non-Veg</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- 🔹 Accommodation -->
+                    <h5 class="mb-3">Accommodation</h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Hotel Required</label>
+                            <select name="Hotel_required" value="<%= travel.Hotel_required %>" class="form-select">
+                                <option>No</option>
+                                <option>Yes</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">Room Type</label>
+                            <select name="Room_type" value="<%= travel.Room_type %>" class="form-select">
+                                <option>Single</option>
+                                <option>Double</option>
+                                <option>Family</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <hr>
+
+                    <!-- 🔹 Documents -->
+                    <h5 class="mb-3">Documents</h5>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">ID Proof</label>
+                            <select name="ID_proof" value="<%= travel.ID_proof %>" class="form-select">
+                                <option>Aadhar Card</option>
+                                <option>Passport</option>
+                                <option>Voter ID</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-6">
+                            <label class="form-label">ID Number</label>
+                            <input type="text" name="ID_number" value="<%= travel.ID_number %>" class="form-control">
+                        </div>
+                    </div>
+
+
+                    <hr>
+
+                    <!-- 🔹 Additional Info -->
+                    <h5 class="mb-3">Additional Information</h5>
+
+                    <div class="mb-3">
+                        <label class="form-label">Special Requests</label>
+                        <textarea name="Special_requests" class="form-control"
+                            rows="3"><%= travel.Special_requests %></textarea>
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Emergency Contact</label>
+                        <input type="tel" name="Emergency_contact" value="<%= travel.Emergency_contact %>"
+                            class="form-control">
+                    </div>
+
+                    <!-- 🔹 Submit -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-success px-5">
+                            Submit Booking
+                        </button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Bootstrap JS (for future buttons/modals) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
