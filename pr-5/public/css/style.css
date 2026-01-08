@@ -1,0 +1,1009 @@
+/* =========================
+   GLOBAL VARIABLES
+========================= */
+:root {
+    --primary-red: #e50914;
+    --dark-bg: #141414;
+    --card-bg: #1a1a1a;
+    --accent-yellow: #f5c518;
+    --light-text: #ffffff;
+    --gray-text: #8c8c8c;
+    --input-bg: #2d2d2d;
+    --success-green: #46d369;
+}
+
+/* =========================
+   BASE / BODY (FIXED)
+========================= */
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+    display: block;
+    /* ✅ IMPORTANT */
+    position: relative;
+    overflow-x: hidden;
+}
+
+/* =========================
+   CINEMA HEADER (TOP)
+========================= */
+.cinema-header {
+    width: 100%;
+    min-height: 60vh;
+
+    background:
+        linear-gradient(135deg, rgba(20, 20, 20, 0.95), rgba(40, 40, 40, 0.9)),
+        url('https://images.unsplash.com/photo-1489599809516-9827b6d1cf13?q=80&w=1470&auto=format&fit=crop');
+
+    background-size: cover;
+    background-position: center;
+
+    padding: 4rem 0;
+    margin-bottom: 3rem;
+
+    border-bottom: 5px solid var(--primary-red);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+
+    position: relative;
+    overflow: hidden;
+}
+
+.cinema-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(229, 9, 20, 0.1),
+            transparent);
+    animation: shine 8s infinite linear;
+}
+
+@keyframes shine {
+    0% {
+        left: -100%;
+    }
+
+    100% {
+        left: 100%;
+    }
+}
+
+.header-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+}
+
+.header-title {
+    font-size: 4rem;
+    font-weight: 900;
+    margin-bottom: 1rem;
+
+    background: linear-gradient(45deg,
+            var(--primary-red),
+            var(--accent-yellow),
+            var(--primary-red));
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientText 3s linear infinite;
+    text-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+
+@keyframes gradientText {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+.header-subtitle {
+    font-size: 1.3rem;
+    color: var(--gray-text);
+    max-width: 700px;
+    margin: 0 auto 2rem;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+.btn-add-movie {
+    background: linear-gradient(45deg, var(--primary-red), #b20710);
+    border: none;
+    color: white;
+    font-weight: 700;
+    font-size: 1.2rem;
+
+    padding: 1rem 2rem;
+    border-radius: 10px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    max-width: 300px;
+    margin: 2rem auto 0;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-add-movie:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(229, 9, 20, 0.4);
+    color: white;
+}
+
+/* =========================
+   MOVIE GRID
+========================= */
+.movie-grid {
+    width: 100%;
+    padding-bottom: 4rem;
+}
+
+/* =========================
+   MOVIE CARD
+========================= */
+.movie-card {
+    background-color: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    height: 100%;
+    position: relative;
+
+    border: 2px solid transparent;
+    transition: all 0.4s ease;
+    margin-bottom: 2rem;
+
+    animation: fadeIn 0.6s ease-out forwards;
+    opacity: 0;
+}
+
+.movie-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    border-color: var(--primary-red);
+    box-shadow: 0 20px 40px rgba(229, 9, 20, 0.3);
+}
+
+.movie-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg,
+            var(--primary-red),
+            var(--accent-yellow));
+}
+
+/* =========================
+   POSTER
+========================= */
+.movie-poster-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.movie-poster {
+    width: 100%;
+    height: 320px;
+    object-fit: cover;
+    transition: transform 0.8s ease;
+}
+
+.movie-card:hover .movie-poster {
+    transform: scale(1.1);
+}
+
+.movie-rating-badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+
+    background: rgba(0, 0, 0, 0.85);
+    color: var(--accent-yellow);
+
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-weight: 700;
+    border: 2px solid var(--accent-yellow);
+}
+
+/* =========================
+   CARD CONTENT
+========================= */
+.movie-content {
+    padding: 1.5rem;
+}
+
+.movie-title {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+}
+
+.movie-director {
+    color: var(--accent-yellow);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.movie-meta {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    font-size: 0.85rem;
+}
+
+.movie-genre {
+    background: rgba(229, 9, 20, 0.2);
+    color: var(--primary-red);
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+}
+
+.movie-language {
+    color: var(--gray-text);
+}
+
+.movie-description {
+    font-size: 0.9rem;
+    color: #b0b0b0;
+    margin-bottom: 1rem;
+}
+
+/* =========================
+   ACTION BUTTONS
+========================= */
+.movie-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-edit,
+.btn-delete {
+    flex: 1;
+    padding: 0.5rem;
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.btn-edit {
+    border: 2px solid var(--accent-yellow);
+    color: var(--accent-yellow);
+}
+
+.btn-edit:hover {
+    background: var(--accent-yellow);
+    color: var(--dark-bg);
+}
+
+.btn-delete {
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+}
+
+.btn-delete:hover {
+    background: var(--primary-red);
+    color: white;
+}
+
+/* =========================
+   EMPTY STATE
+========================= */
+.empty-state {
+    text-align: center;
+    padding: 5rem 2rem;
+}
+
+.empty-icon {
+    font-size: 5rem;
+    color: var(--primary-red);
+    margin-bottom: 2rem;
+}
+
+/* =========================
+   ANIMATIONS
+========================= */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .header-title {
+        font-size: 2.5rem;
+    }
+
+    .header-subtitle {
+        font-size: 1rem;
+    }
+
+    .movie-poster {
+        height: 250px;
+    }
+}
+
+/* =========================
+   UPDATE MOVIE PAGE
+========================= */
+
+/* Container spacing */
+.container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* =========================
+   UPDATE CARD
+========================= */
+.update-card {
+    background: linear-gradient(180deg, #1a1a1a, #141414);
+    border-radius: 20px;
+    overflow: hidden;
+    max-width: 950px;
+    margin: auto;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.8),
+        inset 0 0 0 2px rgba(229, 9, 20, 0.4);
+
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+.card-header-update {
+    background: linear-gradient(135deg,
+            var(--primary-red),
+            #b20710);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header-update::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.15),
+            transparent 70%);
+    animation: shineHeader 3s infinite;
+}
+
+@keyframes shineHeader {
+    from {
+        transform: translateX(-100%);
+    }
+
+    to {
+        transform: translateX(100%);
+    }
+}
+
+.card-header-update h3 {
+    font-size: 2.2rem;
+    font-weight: 900;
+    margin: 0;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   CARD BODY
+========================= */
+.card-body-update {
+    padding: 3rem;
+}
+
+/* =========================
+   FORM GRID
+========================= */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+}
+
+/* =========================
+   FORM GROUP
+========================= */
+.form-group-update {
+    display: flex;
+    flex-direction: column;
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.form-group-update:nth-child(n) {
+    animation-delay: calc(0.1s * var(--i));
+}
+
+/* =========================
+   LABEL
+========================= */
+.form-label-update {
+    color: var(--accent-yellow);
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* =========================
+   INPUT / TEXTAREA
+========================= */
+.form-control-update {
+    background-color: var(--input-bg);
+    border: 2px solid #3a3a3a;
+    border-radius: 10px;
+    color: var(--light-text);
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-control-update:focus {
+    outline: none;
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+/* =========================
+   TEXTAREA FULL WIDTH
+========================= */
+.textarea-group {
+    grid-column: span 2;
+}
+
+/* =========================
+   CURRENT IMAGE
+========================= */
+.current-image-container {
+    margin: 2.5rem 0;
+    text-align: center;
+    padding: 1.5rem;
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.4);
+    border: 2px dashed var(--accent-yellow);
+}
+
+.current-image-label {
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: block;
+}
+
+.current-image {
+    max-height: 200px;
+    border-radius: 12px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    padding: 6px;
+    background: #000;
+}
+
+/* =========================
+   FILE UPLOAD
+========================= */
+.file-upload-update {
+    margin-bottom: 2rem;
+}
+
+.file-upload-label-update {
+    border: 2px dashed #444;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+}
+
+.file-upload-label-update:hover {
+    border-color: var(--primary-red);
+    background: rgba(229, 9, 20, 0.08);
+}
+
+.file-upload-label-update i {
+    font-size: 2rem;
+    color: var(--accent-yellow);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+/* =========================
+   UPDATE BUTTON
+========================= */
+.btn-update {
+    width: 100%;
+    margin-top: 1rem;
+    padding: 1rem;
+
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #000;
+
+    background: linear-gradient(45deg,
+            var(--accent-yellow),
+            #d4af37);
+    border: none;
+    border-radius: 12px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+
+    transition: all 0.3s ease;
+}
+
+.btn-update:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(245, 197, 24, 0.4);
+}
+
+/* =========================
+   BACK LINK
+========================= */
+.back-link {
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.btn-back-update {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 0.7rem 2rem;
+    border-radius: 10px;
+
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-back-update:hover {
+    background: var(--primary-red);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(229, 9, 20, 0.3);
+}
+
+/* =========================
+   ANIMATION
+========================= */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .textarea-group {
+        grid-column: span 1;
+    }
+
+    .card-body-update {
+        padding: 2rem;
+    }
+}
+
+/* =========================
+   ADD MOVIE PAGE
+========================= */
+
+/* Animated subtle background glow */
+.bg-animation {
+    position: fixed;
+    inset: 0;
+    background:
+        radial-gradient(circle at top, rgba(229, 9, 20, 0.15), transparent 40%),
+        radial-gradient(circle at bottom, rgba(245, 197, 24, 0.12), transparent 45%);
+    z-index: -1;
+}
+
+/* =========================
+   PAGE HEADER
+========================= */
+.page-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.page-header h1 {
+    font-size: 3rem;
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+
+    background: linear-gradient(45deg,
+            var(--primary-red),
+            var(--accent-yellow),
+            var(--primary-red));
+    background-size: 200% auto;
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    animation: gradientText 3s linear infinite;
+}
+
+.page-header p {
+    color: var(--gray-text);
+    font-size: 1.1rem;
+}
+
+/* =========================
+   FORM CARD
+========================= */
+.movie-form-card {
+    background: linear-gradient(180deg, #1a1a1a, #141414);
+    border-radius: 20px;
+    overflow: hidden;
+
+    box-shadow:
+        0 25px 60px rgba(0, 0, 0, 0.85),
+        inset 0 0 0 2px rgba(229, 9, 20, 0.35);
+
+    animation: fadeInUp 0.8s ease-out;
+}
+
+/* =========================
+   CARD HEADER
+========================= */
+.card-header-custom {
+    background: linear-gradient(135deg,
+            var(--primary-red),
+            #b20710);
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.card-header-custom::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(45deg,
+            transparent 30%,
+            rgba(255, 255, 255, 0.18),
+            transparent 70%);
+    animation: shineHeader 3s infinite;
+}
+
+.card-header-custom h3 {
+    font-size: 2rem;
+    font-weight: 900;
+    color: white;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    position: relative;
+    z-index: 2;
+}
+
+/* =========================
+   CARD BODY
+========================= */
+.card-body-custom {
+    padding: 3rem;
+}
+
+/* =========================
+   INPUT GROUP WITH ICON
+========================= */
+.input-group-icon {
+    position: relative;
+}
+
+.input-group-icon i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: var(--accent-yellow);
+    font-size: 1rem;
+    pointer-events: none;
+}
+
+.input-group-icon .form-control {
+    padding-left: 45px;
+    background-color: var(--input-bg);
+    border: 2px solid #3a3a3a;
+    border-radius: 12px;
+    color: var(--light-text);
+    height: 50px;
+    transition: all 0.3s ease;
+}
+
+.input-group-icon .form-control:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+/* =========================
+   TEXTAREA
+========================= */
+textarea.form-control {
+    background-color: var(--input-bg);
+    border: 2px solid #3a3a3a;
+    border-radius: 12px;
+    color: var(--light-text);
+    transition: all 0.3s ease;
+}
+
+textarea.form-control:focus {
+    border-color: var(--primary-red);
+    box-shadow: 0 0 0 0.25rem rgba(229, 9, 20, 0.25);
+}
+
+.form-control:focus {
+    background-color: var(--card-bg) !important;
+    color: var(--light-text) !important;
+}
+
+/* =========================
+   FILE UPLOAD
+========================= */
+.file-upload {
+    width: 100%;
+}
+
+.file-upload-label {
+    width: 100%;
+    border: 2px dashed #444;
+    border-radius: 15px;
+    padding: 1.8rem;
+    text-align: center;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.03);
+    transition: all 0.3s ease;
+}
+
+.file-upload-label:hover {
+    border-color: var(--primary-red);
+    background: rgba(229, 9, 20, 0.08);
+}
+
+.file-upload-label i {
+    display: block;
+    font-size: 2.2rem;
+    color: var(--accent-yellow);
+    margin-bottom: 0.5rem;
+}
+
+.file-upload input {
+    display: none;
+}
+
+/* =========================
+   ADD BUTTON
+========================= */
+.btn-custom {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: 800;
+
+    color: #000;
+    background: linear-gradient(45deg,
+            var(--accent-yellow),
+            #d4af37);
+    border: none;
+    border-radius: 14px;
+
+    transition: all 0.3s ease;
+}
+
+.btn-custom:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 15px 30px rgba(245, 197, 24, 0.4);
+}
+
+/* =========================
+   BACK BUTTON
+========================= */
+.btn-back {
+    margin-top: 2rem;
+    padding: 0.8rem 2.2rem;
+
+    border-radius: 12px;
+    border: 2px solid var(--primary-red);
+    color: var(--primary-red);
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: var(--primary-red);
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(229, 9, 20, 0.3);
+}
+
+/* =========================
+   PLACEHOLDER COLOR FIX
+========================= */
+
+/* All inputs & textareas */
+::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+    opacity: 1;
+    /* Firefox fix */
+}
+
+/* Bootstrap inputs specifically */
+.form-control::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* Update Movie page inputs */
+.form-control-update::placeholder {
+    color: rgba(255, 255, 255, 0.55);
+}
+
+/* When input is focused (optional polish) */
+.form-control:focus::placeholder,
+.form-control-update:focus::placeholder {
+    color: rgba(255, 255, 255, 0.35);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .page-header h1 {
+        font-size: 2.3rem;
+    }
+
+    .card-body-custom {
+        padding: 2rem;
+    }
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+.cinema-footer {
+    background: linear-gradient(180deg, #0f0f0f, #141414);
+    border-top: 4px solid var(--primary-red);
+    padding: 3rem 0 1.5rem;
+    margin-top: 4rem;
+    color: var(--gray-text);
+}
+
+.footer-title {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--light-text);
+    margin-bottom: 1rem;
+}
+
+.footer-text {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--gray-text);
+}
+
+.footer-heading {
+    color: var(--accent-yellow);
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.6rem;
+}
+
+.footer-links a {
+    color: var(--gray-text);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-red);
+    padding-left: 5px;
+}
+
+.footer-social a {
+    color: var(--light-text);
+    font-size: 1.4rem;
+    margin-left: 15px;
+    transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--primary-red);
+    transform: translateY(-3px);
+}
+
+.footer-divider {
+    border-color: rgba(255, 255, 255, 0.08);
+    margin: 2rem 0 1rem;
+}
+
+.footer-bottom {
+    font-size: 0.85rem;
+    color: var(--gray-text);
+}
+
+/* =========================
+   FOOTER RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+    .footer-social a {
+        margin: 0 10px;
+    }
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Employee views </title>
+
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 class="text-center text-warning bg-dark mt-2">EMPLOYEE Table</h1>
+        <div class="col-12 pt-5">
+            <table class="table">
+                <thead class="text-center">
+                    <tr>
+                        <th scope="col">No</th>
+                        <th scope="col">EMPLOYEE NAME</th>
+                        <th scope="col">EMPLOYEE EMAIL</th>
+                        <th scope="col">EMPLOYEE PASSWORD</th>
+                        <th scope="col"> EMPLOYEEPhone</th>
+                        <th scope="col">EMPLOYEE GENDER</th>
+                        <th scope="col">EMPLOYEE HOBBY</th>
+                        <th scope="col">EMPLOYEE SALARY</th>
+                        <th scope="col">EMPLOYEE DEPARTMENT</th>
+                        <th scope="col">Image</th>
+                        <th colspan="2">ACTION</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% allEmployee.map((emp, index)=> {%>
+                        <tr>
+                            <th scope="row">
+                                <%= index + 1 %>
+                            </th>
+                            <td>
+                                <%= emp['Employee_name'] %>
+                            </td>
+                            <td>
+                                <%= emp['email'] %>
+                            </td>
+                            <td>
+                                <%= emp['password'] %>
+                            </td>
+                            <td>
+                                <%= emp['phone'] %>
+                            </td>
+                            <td>
+                                <%= emp['gender'] %>
+                            </td>
+                            <td>
+                                <%= emp['salary'] %>
+                            </td>
+                            <td>
+                                <%= emp['hobby'] %>
+                            </td>
+                            <td>
+                                <%= emp['Department'] %>
+                            </td>
+                            <td>
+                                <img src="../<%= emp.profile_image %>" alt="" width="100" height="100">
+                            </td>
+
+                            <td>
+                                <button class="btn btn-danger"><a href="/deletemployee/?employeeId=<%= emp._id %>"
+                                        style="color: white; text-decoration: none;">Delete</a></button>
+                            </td>
+                            <td>
+                                <button class="btn btn-warning">
+                                    <a href="/editEmployeePage/<%= emp._id %>"
+                                        style="color: white; text-decoration: none;">Edit</a>
+                                </button>
+                            </td>
+
+                        </tr>
+                        <% }) %>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Movie</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="/css/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation"></div>
+
+    <div class="container mt-5">
+        <!-- Page Header -->
+        <div class="page-header">
+            <h1>Add New Movie</h1>
+            <p>Fill in the details to add a new masterpiece to your collection</p>
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-10 col-xl-8">
+                <div class="movie-form-card">
+                    <div class="card-header-custom">
+                        <h3><i class="fas fa-film"></i> Add New Movie</h3>
+                    </div>
+
+                    <div class="card-body-custom">
+                        <form method="post" action="/addMovie" enctype="multipart/form-data">
+                            <div class="row mb-4">
+                                <div class="col-md-6">
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-heading"></i>
+                                        <input class="form-control" name="title" placeholder="Movie Title" required>
+                                    </div>
+
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-user-tie"></i>
+                                        <input class="form-control" name="director" placeholder="Director" required>
+                                    </div>
+
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-tags"></i>
+                                        <input class="form-control" name="genre"
+                                            placeholder="Genre (e.g., Action, Drama)" required>
+                                    </div>
+
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-globe"></i>
+                                        <input class="form-control" name="language" placeholder="Language" required>
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-clock"></i>
+                                        <input class="form-control" name="duration" placeholder="Duration (minutes)"
+                                            type="number" required>
+                                    </div>
+
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-calendar-alt"></i>
+                                        <input class="form-control" name="release_year" placeholder="Release Year"
+                                            type="number" required>
+                                    </div>
+
+                                    <div class="input-group-icon mb-4">
+                                        <i class="fas fa-star"></i>
+                                        <input class="form-control" name="rating" placeholder="IMDB Rating (e.g., 8.5)"
+                                            type="number" step="0.1" required>
+                                    </div>
+
+                                    <div class="mb-4">
+                                        <label class="form-label mb-2"
+                                            style="color: var(--accent-yellow); font-weight: 600;">
+                                            <i class="fas fa-image me-2"></i>Movie Poster
+                                        </label>
+                                        <div class="file-upload">
+                                            <label class="file-upload-label">
+                                                <i class="fas fa-cloud-upload-alt"></i>
+                                                <span>Click to upload poster</span>
+                                                <br>
+                                                <small class="text-muted">PNG, JPG up to 5MB</small>
+                                                <input type="file" name="poster_image" class="form-control"
+                                                    accept="image/*" required>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label class="form-label mb-2" style="color: var(--accent-yellow); font-weight: 600;">
+                                    <i class="fas fa-align-left me-2"></i>Movie Description
+                                </label>
+                                <textarea class="form-control" name="description"
+                                    placeholder="Enter a captivating description of the movie..." rows="5"
+                                    required></textarea>
+                            </div>
+
+                            <button class="btn btn-custom mb-4">
+                                <i class="fas fa-plus-circle me-2"></i> Add Movie
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="text-center">
+                    <a href="/allmovies" class="btn btn-back">
+                        <i class="fas fa-arrow-left me-2"></i> View All Movies
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

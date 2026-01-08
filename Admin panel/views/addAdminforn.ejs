@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Page</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-header">
+                <h2><i class="fas fa-user-plus me-2"></i>User Registration</h2>
+                <p>Create your account by filling the form below</p>
+            </div>
+
+            <div class="form-body">
+                <form method="post" action="/addAdmin">
+                    <!-- Personal Information Section -->
+                    <div class="form-section-title">
+                        <i class="fas fa-user-circle me-2"></i>Personal Information
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <label for="firstName" class="form-label required-field">First Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="firstName" name="firstName"
+                                    placeholder="Enter first name" required>
+                            </div>
+                            <div class="form-text-custom">Example: John</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="lastName" class="form-label required-field">Last Name</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" id="lastName" name="lastName"
+                                    placeholder="Enter last name" required>
+                            </div>
+                            <div class="form-text-custom">Example: Smith</div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <label for="email" class="form-label required-field">Email Address</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="example@domain.com" required>
+                            </div>
+                            <div class="form-text-custom">We'll never share your email with anyone else</div>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="password" class="form-label required-field">Password</label>
+                            <div class="input-group">
+                                <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                <input type="password" class="form-control" id="password" name="password"
+                                    placeholder="Create a strong password" required>
+                            </div>
+                            <div class="form-text-custom">Minimum 8 characters with letters and numbers</div>
+                        </div>
+                    </div>
+
+                    <!-- Gender & City Section -->
+                    <div class="form-section-title">
+                        <i class="fas fa-info-circle me-2"></i>Additional Details
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label required-field">Gender</label>
+                            <div class="gender-container">
+                                <div class="row">
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="male"
+                                                value="male" required>
+                                            <label class="form-check-label" for="male">
+                                                <i class="fas fa-male me-2"></i>Male
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="female"
+                                                value="female">
+                                            <label class="form-check-label" for="female">
+                                                <i class="fas fa-female me-2"></i>Female
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-4">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="gender" id="other"
+                                                value="other">
+                                            <label class="form-check-label" for="other">
+                                                <i class="fas fa-user me-2"></i>Other
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6 mb-3">
+                            <label for="city" class="form-label required-field">City</label>
+                            <select class="form-select" id="city" name="city" required>
+                                <option value="" selected disabled>Select your city</option>
+                                <option value="delhi">Delhi</option>
+                                <option value="mumbai">Mumbai</option>
+                                <option value="bangalore">Bangalore</option>
+                                <option value="chennai">Chennai</option>
+                                <option value="kolkata">Kolkata</option>
+                                <option value="hyderabad">Hyderabad</option>
+                                <option value="pune">Pune</option>
+                                <option value="jaipur">Jaipur</option>
+                                <option value="lucknow">Lucknow</option>
+                                <option value="ahmedabad">Ahmedabad</option>
+                                <option value="other">Other</option>
+                            </select>
+                            <div class="form-text-custom">Select your current city of residence</div>
+                        </div>
+                    </div>
+
+                    <!-- Hobbies Section -->
+                    <div class="row mb-4">
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Hobbies</label>
+                            <div class="hobby-container">
+                                <div class="row">
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="reading" name="hobby[]"
+                                                value="reading">
+                                            <label class="form-check-label" for="reading">
+                                                <i class="fas fa-book me-1"></i> Reading
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="traveling"
+                                                name="hobby[]" value="traveling">
+                                            <label class="form-check-label" for="traveling">
+                                                <i class="fas fa-plane me-1"></i> Traveling
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="music" name="hobby[]"
+                                                value="music">
+                                            <label class="form-check-label" for="music">
+                                                <i class="fas fa-music me-1"></i> Music
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="sports" name="hobby[]"
+                                                value="sports">
+                                            <label class="form-check-label" for="sports">
+                                                <i class="fas fa-futbol me-1"></i> Sports
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="gaming" name="hobby[]"
+                                                value="gaming">
+                                            <label class="form-check-label" for="gaming">
+                                                <i class="fas fa-gamepad me-1"></i> Gaming
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="cooking" name="hobby[]"
+                                                value="cooking">
+                                            <label class="form-check-label" for="cooking">
+                                                <i class="fas fa-utensils me-1"></i> Cooking
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="photography"
+                                                name="hobby[]" value="photography">
+                                            <label class="form-check-label" for="photography">
+                                                <i class="fas fa-camera me-1"></i> Photography
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 col-6 mb-2">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="coding" name="hobby[]"
+                                                value="coding">
+                                            <label class="form-check-label" for="coding">
+                                                <i class="fas fa-code me-1"></i> Coding
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-text-custom">Select your hobbies and interests</div>
+                        </div>
+                    </div>
+
+                    <!-- About & Image Section -->
+                    <div class="form-section-title">
+                        <i class="fas fa-id-card me-2"></i>Profile Information
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col-md-8 mb-3">
+                            <label for="about" class="form-label">About Yourself</label>
+                            <textarea class="form-control" id="about" name="about" rows="5"
+                                placeholder="Tell us something about yourself (your interests, background, etc.)"
+                                maxlength="500"></textarea>
+                            <div class="char-count">Maximum 500 characters</div>
+                            <div class="form-text-custom">Share something interesting about yourself</div>
+                        </div>
+
+                        <div class="col-md-4 mb-3">
+                            <label for="image" class="form-label">Profile Image</label>
+                            <div class="image-upload-container">
+                                <div class="image-upload-icon">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </div>
+                                <div class="image-upload-text">Upload Photo</div>
+                                <div class="image-upload-subtext">JPG, PNG, GIF</div>
+                                <div class="image-upload-subtext">Max 2MB</div>
+                            </div>
+                            <input type="file" class="form-control mt-2" id="image" name="image" accept="image/*">
+                            <div class="form-text-custom">Optional: Upload a profile picture</div>
+                        </div>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <div class="row mt-4">
+                        <div class="col-12">
+                            <button type="submit" class="btn-submit">
+                                <i class="fas fa-user-check me-2"></i>Create Account
+                            </button>
+                        </div>
+                    </div>
+                </form>
+
+                <div class="footer-note">
+                    <p class="mb-2">By creating an account, you agree to our <a href="#">Terms & Conditions</a> and <a
+                            href="#">Privacy Policy</a></p>
+                    <p class="mb-0">Already have an account? <a href="#">Sign In</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

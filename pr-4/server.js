@@ -48,7 +48,7 @@ app.post('/addtravel', async (req, res) => {
 app.get('/edittravel/:id', async (req, res) => {
     const travelData = await travel.findById(req.params.id);
     console.log(req.params.id);
-    
+
     console.log(travelData);
     res.render('edit', { travel: travelData });
 
