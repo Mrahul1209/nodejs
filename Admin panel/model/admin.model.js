@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const adminSchema = mongoose.Schema({
-    firstName: String,
-    lastName: String,
+    fname: String,
+    lname: String,
     email: String,
     password: String,
     phone: String,
@@ -10,7 +10,7 @@ const adminSchema = mongoose.Schema({
     hobby: Array,
     city: String,
     about: String,
-    image: String
+    profile_image: String
 });
 
 module.exports = mongoose.model('Admin', adminSchema, 'Admin');

@@ -1,23 +1,26 @@
 const express = require('express');
+const path = require('path');
 require('./config/db.config');
+
+const cookieparser = require('cookie-parser');
 
 const app = express();
 
-const port = 12000;
+const PORT = 12000;
 
-app.set("view engine", "ejs");
-
+app.set('view engine', 'ejs');
 app.use(express.urlencoded({ extended: true }));
-app.use('/', require('./routes/index'));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.listen(port, (err) => {
+app.use(cookieparser());
+
+app.use('/', require('./routes/'));
+
+app.listen(PORT, (err) => {
     if (err) {
-        console.log("Server is Not started !!!!", err);
+        console.log("Server is not started...", err);
         return;
-
     }
-    else {
-        console.log("Server is Strated.!!!!!1");
-
-    }
-})
+    console.log("Server is started on port");
+});
