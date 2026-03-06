@@ -1,0 +1,45 @@
+<%- include('../header') %>
+
+    <main class="main-content" id="mainContent">
+        <div class="content-header">
+            <h1>Add Sub Category</h1>
+            <p>Fill in the details below to add a new sub category.</p>
+        </div>
+
+        <div class="card form-card">
+            <h3><i class="fas fa-plus"></i>Sub Category Details</h3>
+
+            <form action="/subCategory/addSubCategory" method="POST" class="employee-form">
+                <div class="form-grid">
+                    <!-- first name section  -->
+                    <div class="form-group">
+                        <label for="firstName">Sub Category Name</label>
+                        <input type="text" id="firstName" name="sub_category_name" placeholder="Sub Category">
+                    </div>
+
+                    <!-- add here drop down of categories  -->
+                    <div class="form-group">
+                        <label for="department">Category</label>
+                        <select id="department" name="category_id">
+                            <option value="">Select Category</option>
+                            <% allCategory.map(category=> {%>
+                                <option value="<%= category.id %>">
+                                    <%= category.category_name %>
+                                </option>
+                                <%}) %>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- submit buttons  -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Sub Category
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('../footer') %>

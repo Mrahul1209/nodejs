@@ -1,0 +1,293 @@
+<%- include('../header') %>
+
+    <main class="main-content" id="mainContent">
+        <div class="content-header">
+            <h1>Edit Category</h1>
+            <p>Fill in the details below to edit category.</p>
+        </div>
+
+        <div class="card form-card">
+            <h3><i class="fas fa-plus"></i>Category Details</h3>
+
+            <form action="/product/editProduct/<%= editProduct.id%>" method="post" class="employee-form"
+                enctype="multipart/form-data">
+                <div class="form-grid">
+                    <!-- product name section section  -->
+                    <div class="form-group">
+                        <label for="category_name">Product Name</label>
+                        <input type="text" id="product_name" name="product_name"
+                            value="<%= editProduct.product_name %>">
+                    </div>
+
+                    <!-- product_old_price section  -->
+                    <div class="form-group">
+                        <label for="product_old_price">Product Old Price</label>
+                        <input type="text" id="product_old_price" name="product_old_price"
+                            value="<%= editProduct.product_old_price %>">
+                    </div>
+
+                    <!-- product_price section  -->
+                    <div class="form-group">
+                        <label for="product_price">Product Price</label>
+                        <input type="text" id="product_price" name="product_price"
+                            value="<%= editProduct.product_price %>">
+                    </div>
+
+                    <!-- product stock section  -->
+                    <div class="form-group">
+                        <label for="product_stock">Product Stock</label>
+                        <input type="text" id="product_stock" name="product_stock"
+                            value="<%= editProduct.product_stock %>">
+                    </div>
+
+                    <!-- product description section  -->
+                    <div class="form-group">
+                        <label for="product_description">Product Description</label>
+                        <input type="text" id="product_description" name="product_description"
+                            value="<%= editProduct.product_description %>">
+                    </div>
+
+                    <!-- product current image section  -->
+                    <div class="form-group">
+                        <label for="product_description">Product Current Image</label>
+                        <img src="../<%= editProduct.product_image%>" alt="" width="70">
+                    </div>
+
+                    <!-- Product Image section  -->
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" id="product_image" name="product_image">
+                    </div>
+
+                    <!-- add here drop down of categories  -->
+                    <div class="form-group">
+                        <label for="department">Category</label>
+                        <select id="category" name="category_id">
+                            <option value="">Select Category</option>
+                            <% allCategory.map(category=> { %>
+                                <option <%=(category._id.toString()===editProduct.category_id._id.toString())
+                                    ? "selected" : "" %>
+                                    value="<%= category.id %>">
+                                        <%= category.category_name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+
+                    <!-- add here drop down of sub categories  -->
+                    <div class="form-group">
+                        <label for="department">Sub Category</label>
+                        <select id="subcategory" name="sub_category_id">
+                            <option value="">Select Sub Category</option>
+                            <% filteredAllSubCategory.map(sub_category=> { %>
+                                <option <%=(sub_category._id.toString()===editProduct.sub_category_id._id.toString())
+                                    ? "selected" : "" %>
+                                    value="<%= sub_category._id %>">
+                                        <%= sub_category.sub_category_name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+
+                    <!-- add here drop down of extra categories  -->
+                    <div class="form-group">
+                        <label for="department">Extra Category</label>
+                        <select id="subcategory" name="extra_category_id">
+                            <option value="">Select Extra Category</option>
+                            <% filteredAllExtraCategory.map(extra_category=> { %>
+                                <option
+                                    <%=(extra_category._id.toString()===editProduct.extra_category_id._id.toString())
+                                    ? "selected" : "" %>
+                                    value="<%= extra_category.id %>">
+                                        <%= extra_category.extra_category_name %>
+                                </option>
+                                <% }) %>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- submit buttons  -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Update Category
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DashboardPro</h3>
+                <p>A complete dashboard solution for managing your projects, analytics, and team collaboration. Built
+                    with modern web technologies and responsive design principles.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> API Reference</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Community Forum</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Support Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>123 Business Street</p>
+                            <p>New York, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>+1 (555) 123-4567</p>
+                            <p>Mon-Fri, 9am-6pm EST</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p>info@dashboardpro.com</p>
+                            <p>support@dashboardpro.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 DashboardPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                    Service</a></p>
+            <p style="margin-top: 0.5rem;">Designed with <i class="fas fa-heart" style="color: #e63946;"></i> for the
+                developer community</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.18/dist/sweetalert2.all.min.js"></script>
+
+
+    <script>
+
+        const allSubCategories = <%- JSON.stringify(allSubCategory) %>;
+        const allExtraCategories = <%- JSON.stringify(allExtraCategory) %>;
+
+        const categorySelect = document.getElementById('category');
+        const subcategorySelect = document.getElementById('subcategory');
+        const extraCategorySelect = document.getElementsByName('extra_category_id')[0];
+
+        categorySelect.addEventListener('change', function () {
+
+            const selectedCategoryId = this.value;
+
+            subcategorySelect.innerHTML = '<option value="">Select Sub Category</option>';
+            extraCategorySelect.innerHTML = '<option value="">Select Extra Category</option>';
+
+            const filteredSubCategory = allSubCategories.filter(sub_category =>
+                sub_category.category_id.toString() === selectedCategoryId
+            );
+
+            filteredSubCategory.forEach(sub_category => {
+                subcategorySelect.innerHTML += `
+            <option value="${sub_category._id}">
+                ${sub_category.sub_category_name}
+            </option>
+        `;
+            });
+        });
+
+        subcategorySelect.addEventListener('change', function () {
+
+            const selectedSubCategoryId = this.value;
+
+            extraCategorySelect.innerHTML = '<option value="">Select Extra Category</option>';
+
+            const filteredExtraCategory = allExtraCategories.filter(extra_category =>
+                extra_category.sub_category_id.toString() === selectedSubCategoryId
+            );
+
+            filteredExtraCategory.forEach(extra_category => {
+                extraCategorySelect.innerHTML += `
+            <option value="${extra_category._id}">
+                ${extra_category.extra_category_name}
+            </option>
+        `;
+            });
+        });
+
+
+        if (<%= locals.flash.success.length > 0 && locals.flash.success !== "" %>) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "<%= locals.flash.success %>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        if (<%= locals.flash.error.length > 0 && locals.flash.error !== "" %>) {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "<%= locals.flash.error %>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        // header buttons dropdown logic
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const userDropdown = document.querySelector('.user-dropdown');
+
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            userDropdown.classList.remove('active');
+        });
+
+        document.querySelectorAll('.sidebar-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.parentElement;
+                parent.classList.toggle('active');
+
+                const menu = parent.querySelector('.sidebar-dropdown-menu');
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+
+    </script>
+
+    </body>
+
+    </html>

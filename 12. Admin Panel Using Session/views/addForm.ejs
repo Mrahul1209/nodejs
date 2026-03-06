@@ -1,0 +1,97 @@
+<%- include('header') %>
+
+    <main class="main-content" id="mainContent">
+        <div class="content-header">
+            <h1><i class="fas fa-user-plus"></i> Add New Admin</h1>
+            <p>Fill in the details below to add a new administrator</p>
+        </div>
+
+        <div class="card form-card">
+            <form action="/addEmployee" method="POST" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> First Name</label>
+                        <input type="text" name="firstName" placeholder="Enter first name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-user"></i> Last Name</label>
+                        <input type="text" name="lastName" placeholder="Enter last name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" name="email" placeholder="admin@example.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-lock"></i> Password</label>
+                        <input type="password" name="password" placeholder="Enter password" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-phone"></i> Phone Number</label>
+                        <input type="tel" name="phone" placeholder="+1 234 567 8900" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-venus-mars"></i> Gender</label>
+                        <div class="radio-group">
+                            <label class="radio-card">
+                                <input type="radio" name="gender" value="Male" required>
+                                <span><i class="fas fa-mars"></i> Male</span>
+                            </label>
+                            <label class="radio-card">
+                                <input type="radio" name="gender" value="Female" required>
+                                <span><i class="fas fa-venus"></i> Female</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-heart"></i> Hobbies</label>
+                        <div class="checkbox-group">
+                            <% ["Reading", "Travelling", "Music", "Sports", "Others"].map(hobby => { %>
+                                <label class="checkbox-card">
+                                    <input type="checkbox" name="hobbies" value="<%= hobby %>">
+                                    <span><%= hobby %></span>
+                                </label>
+                            <% }) %>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-city"></i> City</label>
+                        <select name="city" required>
+                            <option value="">Select City</option>
+                            <option value="Surat">Surat</option>
+                            <option value="Jaipur">Jaipur</option>
+                            <option value="Navsari">Navsari</option>
+                            <option value="Bhavnagar">Bhavnagar</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label><i class="fas fa-image"></i> Profile Image</label>
+                        <input type="file" name="profileImage" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label><i class="fas fa-info-circle"></i> About</label>
+                        <textarea name="about" rows="4" placeholder="Write about yourself..."></textarea>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button type="reset" class="btn btn-secondary">
+                        <i class="fas fa-undo"></i> Reset
+                    </button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Admin
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <%- include('footer') %>

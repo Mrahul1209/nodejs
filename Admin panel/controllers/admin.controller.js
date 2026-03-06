@@ -13,12 +13,12 @@ module.exports.loginPage = async (req, res) => {
 
         return res.render('auth/login');
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something is mistak");
         console.log("Error : ", err);
         return res.redirect('/');
     }
 }
-// Login Logic
+// Login 
 module.exports.checkLogin = async (req, res) => {
     try {
         const admin = await Admin.findOne({ email: req.body.email });
@@ -72,21 +72,21 @@ module.exports.changePassword = async (req, res) => {
         const { current_psw, new_psw, conform_psw } = req.body;
 
         if (current_psw !== admin.password) {
-            console.log("Current Password and Old Password are not match...");
+            console.log("curent Password and old Password are not match...");
             return res.redirect('/change-password');
         }
 
         if (new_psw === admin.password) {
-            console.log("New Password and Old Password are same...");
+            console.log("new Password and old Password are same!!!!...");
             return res.redirect('/change-password');
         }
 
         if (new_psw !== conform_psw) {
-            console.log("New Password and Conform Password are not matched...");
+            console.log("new Password and conform Password are not match!!!!!...");
             return res.redirect('/change-password');
         }
 
-        // Update for Change Password
+        // Update  Password
         const adminChangePassword = await Admin.findByIdAndUpdate(admin._id, { password: new_psw }, { new: true });
 
         if (adminChangePassword) {
@@ -105,7 +105,7 @@ module.exports.changePassword = async (req, res) => {
     }
 }
 
-// Verify Email
+// Verify email
 module.exports.verifyEmail = async (req, res) => {
 
     console.log(req.body);
@@ -118,7 +118,7 @@ module.exports.verifyEmail = async (req, res) => {
             return res.redirect('/');
         }
 
-        // Send OTP
+        // Send otp
         let transporter = nodemailer.createTransport({
             service: "gmail",
             auth: {
@@ -134,7 +134,7 @@ module.exports.verifyEmail = async (req, res) => {
             to: req.body.email,
             subject: "OTP Verification",
             html: `<h2>Forgot Password OTP</h2>
-                    <p> OTP : ${OTP} </p>`, // HTML version of the message
+                    <p> OTP : ${OTP} </p>`,
         });
 
         console.log(info.messageId);
@@ -142,7 +142,7 @@ module.exports.verifyEmail = async (req, res) => {
         res.cookie("OTP", OTP);
         res.cookie("id", myAdmin._id);
 
-        return res.redirect('/otp-page'); // OTP Verify Page
+        return res.redirect('/otp-page');
 
     } catch (err) {
         console.log("Something went wrong");
@@ -154,7 +154,11 @@ module.exports.verifyEmail = async (req, res) => {
 // OTP Page
 module.exports.OTPPage = (req, res) => {
     try {
+        if (!req.cookies.OTP) {
+            return res.redirect('/')
+        }
         return res.render('auth/OTPPage');
+
     } catch (err) {
         console.log("Something went wrong");
         console.log("Error : ", err);
@@ -162,14 +166,14 @@ module.exports.OTPPage = (req, res) => {
     }
 }
 
-// OTP Verify
+// OTP 
 module.exports.OTPVerify = async (req, res) => {
     try {
         console.log("User Side : ", req.body);
         console.log("Developer Side : ", req.cookies);
 
         if (req.body.adminOTP !== req.cookies.OTP) {
-            console.log("OTP not match...");
+            console.log("otp not match!!!!...");
             return res.redirect('/otp-page');
         }
 
@@ -186,22 +190,25 @@ module.exports.OTPVerify = async (req, res) => {
 // New Password Page
 module.exports.newPasswordPage = (req, res) => {
     try {
+        if (!req.cookies.OTP) {
+            return res.redirect('/');
+        }
         res.clearCookie('OTP');
         return res.render('auth/newPasswordPage');
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong....!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/');
     }
 }
 
-// Change New Password Logic
+// Change  Password Logic
 module.exports.changeNewPassword = async (req, res) => {
     try {
         console.log(req.body);
 
         if (req.body.new_password !== req.body.conform_password) {
-            console.log("New and Conform Password not matched");
+            console.log("New and Conform Password not match!!!!!!!!!");
             return res.redirect('/newPasswordPage');
         }
 
@@ -219,7 +226,7 @@ module.exports.changeNewPassword = async (req, res) => {
         }
 
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/');
     }
@@ -236,7 +243,7 @@ module.exports.profilePage = async (req, res) => {
 
         return res.render('profile/profilePage', { admin });
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/');
     }
@@ -259,7 +266,7 @@ module.exports.dashboardPage = async (req, res) => {
 
         return res.render('dashboard', { admin });
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/');
     }
@@ -277,13 +284,13 @@ module.exports.addAdminPage = async (req, res) => {
 
         return res.render('admin/addAdminPage', { admin });
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/dashboard');
     }
 }
 
-// View Admin Page
+// View Admin 
 module.exports.viewAdminPage = async (req, res) => {
     try {
         const admin = await Admin.findById(req.cookies.adminId);
@@ -294,11 +301,13 @@ module.exports.viewAdminPage = async (req, res) => {
 
         let allAdmin = await Admin.find();
 
+        console.log(allAdmin);
+
         allAdmin = allAdmin.filter((subadmin) => subadmin.email != admin.email);
 
         return res.render('admin/viewAdminPage', { allAdmin, admin });
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/dashboard');
     }
@@ -321,7 +330,7 @@ module.exports.insertAdmin = async (req, res) => {
         }
         return res.redirect('/addAdminPage');
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/addAdminPage');
     }
@@ -342,7 +351,7 @@ module.exports.deleteAdmin = async (req, res) => {
 
         if (deletedUser) {
             fs.unlink(deletedUser.profile_image, () => { });
-            console.log("Admin deleted successfully...");
+            console.log("Admin deleted succes!!!!!!!!");
         } else {
             console.log("Admin deletion failed...");
         }
@@ -356,7 +365,7 @@ module.exports.deleteAdmin = async (req, res) => {
     }
 }
 
-// Update Admin Page
+// Update Admin 
 module.exports.editAdminPage = async (req, res) => {
     try {
         const admin = await Admin.findById(req.cookies.adminId);
@@ -372,7 +381,7 @@ module.exports.editAdminPage = async (req, res) => {
         return res.render('admin/editAdminPage', { singleAdmin, admin });
 
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/viewAdminPage');
     }
@@ -394,7 +403,7 @@ module.exports.updateAdmin = async (req, res) => {
 
             if (updatedData) {
                 fs.unlink(updatedData.profile_image, () => { });
-                console.log("Admin Updated Successfully...");
+                console.log("Admin Updated Succes!!...");
             } else {
                 console.log("Admin Updation Failed...");
             }
@@ -402,7 +411,7 @@ module.exports.updateAdmin = async (req, res) => {
             const updatedData = await Admin.findByIdAndUpdate(req.params.adminId, req.body, { new: true });
 
             if (updatedData) {
-                console.log("Admin Updated Successfully...");
+                console.log("Admin Updated Succes...");
             } else {
                 console.log("Admin Updation Failed...");
             }
@@ -410,7 +419,7 @@ module.exports.updateAdmin = async (req, res) => {
 
         return (req.params.adminId === req.cookies.adminId) ? res.redirect('/profile') : res.redirect('/viewAdminPage');
     } catch (err) {
-        console.log("Something went wrong");
+        console.log("Something went wrong!!!!!!!!!!!");
         console.log("Error : ", err);
         return res.redirect('/viewAdminPage');
     }

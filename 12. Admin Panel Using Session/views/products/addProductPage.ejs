@@ -1,0 +1,304 @@
+<%- include('../header') %>
+
+    <main class="main-content" id="mainContent">
+        <div class="content-header">
+            <h1>Add Product</h1>
+            <p>Fill in the details below to add a new product.</p>
+        </div>
+
+        <div class="card form-card">
+            <h3><i class="fas fa-plus"></i>Sub Category Details</h3>
+
+            <form action="/product/addProduct" method="POST" class="employee-form" enctype="multipart/form-data">
+                <div class="form-grid">
+                    <!-- product name section  -->
+                    <div class="form-group">
+                        <label for="productName">Name</label>
+                        <input type="text" id="productName" name="product_name" placeholder="Product Name">
+                    </div>
+
+                    <!-- product old price section  -->
+                    <div class="form-group">
+                        <label for="productOldPrice">Old Price</label>
+                        <input type="text" id="productOldPrice" name="product_old_price"
+                            placeholder="Product Old Price">
+                    </div>
+
+                    <!-- product price section  -->
+                    <div class="form-group">
+                        <label for="productPrice">Price</label>
+                        <input type="text" id="productPrice" name="product_price" placeholder="Product Price">
+                    </div>
+
+                    <!-- product stock section  -->
+                    <div class="form-group">
+                        <label for="productStock">Stock</label>
+                        <input type="text" id="productStock" name="product_stock" placeholder="Product Stock">
+                    </div>
+
+                    <!-- product description section  -->
+                    <div class="form-group">
+                        <label for="productDescription">Description</label>
+                        <textarea name="product_description" id="productDescription"
+                            placeholder="Product Description"></textarea>
+                    </div>
+
+                    <!-- Product Image section  -->
+                    <div class="form-group">
+                        <label>Image</label>
+                        <input type="file" id="product_image" name="product_image" required>
+                    </div>
+
+                    <!-- add here drop down of categories  -->
+                    <div class="form-group">
+                        <label for="department">Category</label>
+                        <select id="category" name="category_id">
+                            <option value="">Select Category</option>
+                            <%allCategory.map(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.category_name%>
+                                </option>
+                                <%})%>
+
+                        </select>
+                    </div>
+
+                    <!-- add here drop down of sub categories  -->
+                    <div class="form-group">
+                        <label for="department">Sub Category</label>
+                        <select id="subcategory" name="sub_category_id">
+                            <option value="">Select Category</option>
+                            <%allSubCategory.map(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.sub_category_name%>
+                                </option>
+                                <%})%>
+                        </select>
+                    </div>
+
+                    <!-- add here drop down of sub categories  -->
+                    <div class="form-group">
+                        <label for="department">Extra Category</label>
+                        <select id="extracategory" name="extra_category_id">
+                            <option value="">Select Extra Category</option>
+                            <%allExtraCategory.map(category=> { %>
+                                <option value="<%= category.id %>">
+                                    <%= category.extra_category_name%>
+                                </option>
+                                <%})%>
+                        </select>
+                    </div>
+
+                </div>
+
+                <!-- submit buttons  -->
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-save"></i> Save Sub Category
+                    </button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="footer" id="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>DashboardPro</h3>
+                <p>A complete dashboard solution for managing your projects, analytics, and team collaboration. Built
+                    with modern web technologies and responsive design principles.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Services</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Portfolio</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul class="footer-links">
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> API Reference</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Community Forum</a></li>
+                    <li><a href="#"><i class="fas fa-chevron-right"></i> Support Center</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p>123 Business Street</p>
+                            <p>New York, NY 10001</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p>+1 (555) 123-4567</p>
+                            <p>Mon-Fri, 9am-6pm EST</p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p>info@dashboardpro.com</p>
+                            <p>support@dashboardpro.com</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2023 DashboardPro. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of
+                    Service</a></p>
+            <p style="margin-top: 0.5rem;">Designed with <i class="fas fa-heart" style="color: #e63946;"></i> for the
+                developer community</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.18/dist/sweetalert2.all.min.js"></script>
+
+
+    <script>
+
+        const allSubCategories = <%- JSON.stringify(allSubCategory) %>;
+        const allExtraCategories = <%- JSON.stringify(allExtraCategory) %>;
+
+        const category = document.getElementById('category');
+        const subcategory = document.getElementById('subcategory');
+        const extracategory = document.getElementById('extracategory');
+
+        // Initial State
+        subcategory.disabled = true;
+        extracategory.disabled = true;
+
+        // =============================
+        // Category → SubCategory
+        // =============================
+        category.addEventListener('change', function () {
+
+            const selectedId = this.value;
+
+            subcategory.innerHTML = '<option value="">Select Sub Category</option>';
+            extracategory.innerHTML = '<option value="">Select Extra Category</option>';
+
+            extracategory.disabled = true;
+
+            if (!selectedId) {
+                subcategory.disabled = true;
+                return;
+            }
+
+            subcategory.disabled = false;
+
+            const filteredSubCategories = allSubCategories.filter(sub =>
+                sub.category_id.toString() === selectedId
+            );
+
+            filteredSubCategories.forEach(sub => {
+                subcategory.innerHTML += `
+            <option value="${sub._id}">
+                ${sub.sub_category_name}
+            </option>
+        `;
+            });
+        });
+
+        // =============================
+        // SubCategory → ExtraCategory
+        // =============================
+        subcategory.addEventListener('change', function () {
+
+            const selectedSubId = this.value;
+
+            extracategory.innerHTML = '<option value="">Select Extra Category</option>';
+
+            if (!selectedSubId) {
+                extracategory.disabled = true;
+                return;
+            }
+
+            extracategory.disabled = false;
+
+            const filteredExtraCategories = allExtraCategories.filter(extra =>
+                extra.sub_category_id.toString() === selectedSubId
+            );
+
+            filteredExtraCategories.forEach(extra => {
+                extracategory.innerHTML += `
+            <option value="${extra._id}">
+                ${extra.extra_category_name}
+            </option>
+        `;
+            });
+        });
+
+        if (<%= locals.flash.success.length > 0 && locals.flash.success !== "" %>) {
+            Swal.fire({
+                position: "center",
+                icon: "success",
+                title: "<%= locals.flash.success %>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        if (<%= locals.flash.error.length > 0 && locals.flash.error !== "" %>) {
+            Swal.fire({
+                position: "center",
+                icon: "error",
+                title: "<%= locals.flash.error %>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        }
+
+        // header buttons dropdown logic
+        const dropdownBtn = document.querySelector('.dropdown-btn');
+        const userDropdown = document.querySelector('.user-dropdown');
+
+        dropdownBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            userDropdown.classList.toggle('active');
+        });
+
+        document.addEventListener('click', () => {
+            userDropdown.classList.remove('active');
+        });
+
+        document.querySelectorAll('.sidebar-dropdown-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const parent = btn.parentElement;
+                parent.classList.toggle('active');
+
+                const menu = parent.querySelector('.sidebar-dropdown-menu');
+                menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+            });
+        });
+
+
+    </script>
+
+    </body>
+
+    </html>

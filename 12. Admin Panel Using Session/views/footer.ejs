@@ -1,0 +1,114 @@
+<!-- Glassmorphism Footer -->
+<footer class="footer" id="footer">
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>ModernGlass</h3>
+            <p>A stunning glassmorphism admin panel with cutting-edge design and seamless user experience. Built with modern web technologies and responsive design principles for the future.</p>
+            <div class="social-links">
+                <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+            <ul class="footer-links">
+                <li><a href="/dashboardPage"><i class="fas fa-chevron-right"></i> Dashboard</a></li>
+                <li><a href="/viewAdminPage"><i class="fas fa-chevron-right"></i> View Admins</a></li>
+                <li><a href="/addAdminFormPage"><i class="fas fa-chevron-right"></i> Add Admin</a></li>
+                <li><a href="/category/allCategoryViewPage"><i class="fas fa-chevron-right"></i> Categories</a></li>
+                <li><a href="/profile"><i class="fas fa-chevron-right"></i> Profile</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Resources</h3>
+            <ul class="footer-links">
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Documentation</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Tutorials</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> API Reference</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Community Forum</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Support Center</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p>123 Innovation Street</p>
+                        <p>Tech Valley, CA 94000</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-phone"></i>
+                    <div>
+                        <p>+1 (555) 987-6543</p>
+                        <p>Mon-Fri, 9am-6pm PST</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p>hello@modernglass.com</p>
+                        <p>support@modernglass.com</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom">
+        <p>&copy; 2024 ModernGlass. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+        <p style="margin-top: 0.5rem;">Crafted with <i class="fas fa-heart" style="color: #FF6B6B;"></i> using Glassmorphism Design</p>
+    </div>
+</footer>
+
+<!-- Scroll to Top Button -->
+<button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- SweetAlert2 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.26.18/dist/sweetalert2.all.min.js"></script>
+
+<!-- Main JavaScript -->
+<script src="/public/script.js"></script>
+
+<!-- Flash Messages -->
+<script>
+    if (<%= locals.flash.success.length > 0 && locals.flash.success !== "" %>) {
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "<%= locals.flash.success %>",
+            showConfirmButton: false,
+            timer: 2000,
+            toast: true,
+            background: '#f0fdf4',
+            iconColor: '#10b981'
+        });
+    }
+
+    if (<%= locals.flash.error.length > 0 && locals.flash.error !== "" %>) {
+        Swal.fire({
+            position: "center",
+            icon: "error",
+            title: "<%= locals.flash.error %>",
+            showConfirmButton: false,
+            timer: 2000,
+            toast: true,
+            background: '#fef2f2',
+            iconColor: '#ef4444'
+        });
+    }
+</script>
+
+</body>
+
+</html>

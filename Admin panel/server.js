@@ -15,12 +15,12 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 app.use(cookieparser());
 
-app.use('/', require('./routes/'));
+app.use('/', require('./routes/route'));
 
 app.listen(PORT, (err) => {
     if (err) {
         console.log("Server is not started...", err);
         return;
     }
-    console.log("Server is started on port");
+    console.log("Server is started !!!!!!");
 });
