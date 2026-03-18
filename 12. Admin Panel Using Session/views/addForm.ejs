@@ -51,12 +51,14 @@
                     <div class="form-group full-width">
                         <label><i class="fas fa-heart"></i> Hobbies</label>
                         <div class="checkbox-group">
-                            <% ["Reading", "Travelling", "Music", "Sports", "Others"].map(hobby => { %>
+                            <% ["Reading", "Travelling" , "Music" , "Sports" , "Others" ].map(hobby=> { %>
                                 <label class="checkbox-card">
                                     <input type="checkbox" name="hobbies" value="<%= hobby %>">
-                                    <span><%= hobby %></span>
+                                    <span>
+                                        <%= hobby %>
+                                    </span>
                                 </label>
-                            <% }) %>
+                                <% }) %>
                         </div>
                     </div>
 
@@ -65,8 +67,8 @@
                         <select name="city" required>
                             <option value="">Select City</option>
                             <option value="Surat">Surat</option>
-                            <option value="Jaipur">Jaipur</option>
-                            <option value="Navsari">Navsari</option>
+                            <option value="Jaipur">Ahmedabad</option>
+                            <option value="Navsari">Vadodra</option>
                             <option value="Bhavnagar">Bhavnagar</option>
                         </select>
                     </div>

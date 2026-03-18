@@ -1,4 +1,8 @@
 const Category = require('../models/categories.model');
+const SubCategory = require('../models/subcategories.model');
+const ExtraCategory = require('../models/extracategories.model');
+const Product = require('../models/product.model');
+
 const fs = require('fs');
 
 // add category page rendering 
@@ -42,6 +46,17 @@ module.exports.allCategoryViewPage = async (req, res) => {
 module.exports.deleteCategory = async (req, res) => {
     try {
         const deletedCategory = await Category.findByIdAndDelete(req.params.categoryId);
+
+        await SubCategory.deleteMany({ category_id: deletedCategory.id });
+        await ExtraCategory.deleteMany({ category_id: deletedCategory.id });
+
+        const products = await Product.find({ category_id: deletedCategory.id });
+
+        products.forEach(product => {
+            fs.unlink(product.product_image, () => { })
+        });
+
+        await Product.deleteMany({ category_id: deletedCategory.id })
 
         fs.unlink(deletedCategory.category_image, () => { });
 
